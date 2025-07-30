@@ -19,8 +19,15 @@ import { Icon } from 'astro-icon/components';
     const $button = document.getElementById('toggle-button');
     const $icon = document.getElementById('icon-toggle');
         const audio = document.getElementById('radio-stream');
-    let isPlaying = false;
 
+
+  if (!$button || !$icon || !(audio instanceof HTMLAudioElement)) {
+    console.error("Uno de los elementos no se encontró o no es válido.");
+    return;
+  }
+
+      let isPlaying = false;
+      
     const playSVG = `
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M8 5v14l11-7z" />
@@ -31,9 +38,6 @@ import { Icon } from 'astro-icon/components';
       </svg>`;
 
     $button.addEventListener('click', () => {
-/*       isPlaying = !isPlaying;
-      console.log("Button clicked, isPlaying:", isPlaying);
-      $icon.innerHTML = isPlaying ? pauseSVG : playSVG; */
 
          if (!isPlaying) {
         audio.play();

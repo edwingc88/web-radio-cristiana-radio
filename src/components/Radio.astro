@@ -2,7 +2,7 @@
 /* import play from './icons/player-play.svg';
  */
 /* import { Icon } from 'astro-icon/components'; */
-import PlayerToggle from './PlayerToogle.astro';
+import Player from './Player.astro';
 const { label } = Astro.props;
 
 
@@ -17,7 +17,7 @@ const { label } = Astro.props;
   <h2 class="text-yellow-300 text-lg font-semibold">{label}</h2>
 
 
-<PlayerToggle  client:load  />
+<Player  />
 
 	<div class="flex flex-col items-center ml-6">
 		<label for="volume" class="text-white text-base font-medium mb-1">Volumen</label>
