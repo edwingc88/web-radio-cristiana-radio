@@ -1,0 +1,59 @@
+---
+/* import play from './icons/player-play.svg';
+ */
+/* import { Icon } from 'astro-icon/components'; */
+import PlayerToggle from './PlayerToogle.astro';
+const { label } = Astro.props;
+
+
+
+---
+
+
+<div
+	id="radio"
+	class="flex items-center justify-between h-22 px-6 w-[1024px] rounded-xl shadow-lg"
+>
+  <h2 class="text-yellow-300 text-lg font-semibold">{label}</h2>
+
+
+<PlayerToggle  client:load  />
+
+	<div class="flex flex-col items-center ml-6">
+		<label for="volume" class="text-white text-base font-medium mb-1">Volumen</label>
+		<input
+			id="volume"
+			type="range"
+			min="0"
+			max="100"
+			value="50"
+			class="w-32 accent-yellow-400"
+		/>
+	</div>
+</div>
+
+<style>
+
+
+/* 	#container {
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		height: 100%;
+	} */
+
+
+</style>
+<!-- 
+<script>
+        const $button = document.getElementById('play-button');
+        const $icon = document.getElementById('icon-toggle');
+        let isPlaying = false;
+
+
+        $button.addEventListener('click', () => {
+					
+				console.log('Radio component loaded');
+            isPlaying = !isPlaying;
+            $icon.setAttribute('name', isPlaying ? 'player-pause' : 'player-play');
+        });
+
+</script> -->

@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="shows" class="w-full  bg-[#1b1b1b]">
+  <div class="grid grid-cols-2 gap-6 mx-auto pt-12 pb-12 justify-center align-middle w-[1024px]">
+    <video class="rounded cursor-pointer" width="480" height="608" controls poster="imagenVideoRadio.jpg">
+      <source src="video-ws.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+    <article class="flex flex-col justify-center text-white ">
+      <p class="text-amber-300 text-lg">Horario Semanal</p>
+      <h2 class="text-start text-4xl font-bold mt-1 mb-1">PROGRAMACION EN VIVO</h2>
+      <div class="flex items-center text-start flex-row ">
+          <hr class="w-22 text-start  text-amber-300"></hr>
+          <Icon name="microphone" class="w-6 h-6 mx-2 text-amber-300" />
+          <hr class="w-22 text-start text-amber-300"></hr>
+      </div>
+  
+      <ul class="pt-6 text-lg">
+        <li>1: Morning Vibes - Lunes -  6:00 am a 8:00 am</li>
+        <li>2: Midday Melodies - Martes - 9:00 am a 12:00 pm</li>
+        <li>3: Afternoon Beats - 1:00 pm - 4:00 pm</li>
+        <li>4: Evening Chill - 5:00 pm - 8:00 pm</li>
+        <li>5: Tomorow Chill - 5:00 pm - 8:00 pm</li>
+        <li>6: Tomorow Chill - Miercoles - 5:00 pm - 8:00 pm</li>
+      </ul>
+    </article>
+  </div>
+</section>

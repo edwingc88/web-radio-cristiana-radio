@@ -1,0 +1,43 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="contact" class="w-[1024px] mx-auto pt-12 pb-8">
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+    <p class="pb-1">Tu mensaje es bienvenido</p>
+    <h2 class="text-3xl font-bold mb-5">CONTACTANOS</h2>
+    <p class="pb-1">¿Tienes comentarios, sugerencias o solo quieres mantenerte al día con nuestra programación? </p><p>Escríbenos a través del formulario y deja tu correo electrónico. Así podremos enviarte información exclusiva sobre nuestros próximos programas, lanzamientos especiales y todo lo que estamos preparando en Radio Cristiana Radio.</p>
+    <ul class="flex flex-row gap-2 mt-4">
+      <li class="cursor-pointer"><Icon name="instagram" class="w-8 h-8" /></li>
+      <li class="cursor-pointer"><Icon name="facebook" class="w-8 h-8" /></li>
+      <li class="cursor-pointer"><Icon name="ws" class="w-8 h-8" /></li>
+      <li class="cursor-pointer"><Icon name="youtube" class="w-8 h-8" /></li>
+    </ul>    
+        <form  class="pt-8 text-white" action="">
+          <label for="name" class="block text-sm font-medium ">Nombre</label>
+          <input type="text" id="name" name="name" class="mt-1 block w-full border-b-2  shadow-sm sm:text-sm focus:outline-none" required>
+          <label for="email" class="block text-sm font-medium mt-4">Email</label>
+          <input type="email" id="email" name="email" class="mt-1 block w-full border-b-2  shadow-sm  focus:outline-none sm:text-sm" required>
+          <label for="message" class="block text-sm font-medium  mt-4">Mensaje</label>
+          <textarea id="message" name="message" rows="4" class="mt-1 block w-full border-b-2  shadow-sm focus:outline-none   sm:text-sm resize-none"></textarea>
+
+          <button type="submit" class="mt-6 px-8 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-500 font-bold cursor-pointer">ENVIAR</button>
+        </form>
+    </div>
+    <img class="image-degradada" src="/joven.png" alt="Radio photo 1" class="w-100 -mt-28" />
+  </div>
+</section>
+
+<style>
+
+.image-degradada {
+      margin-top: -140px;
+  mask-image: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 1) 70%, 
+    rgba(0, 0, 0, 0) 100%);
+/*   -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));  *//* Para Safari */
+}
+</style>
+

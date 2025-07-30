@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<button id="toggle-button" class="w-16 h-16 rounded-full bg-white hover:bg-yellow-200 flex items-center justify-center transition hover:cursor-pointer">
+  <div id="icon-toggle" class="w-10 h-10 text-gray-900">
+    <!-- SVG Play por defecto -->
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z" />
+    </svg>
+  </div>
+</button>
+<audio id="radio-stream" src="https://s2.radio.co/sb8a87a94f/listen" preload="none"></audio>
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const $button = document.getElementById('toggle-button');
+    const $icon = document.getElementById('icon-toggle');
+        const audio = document.getElementById('radio-stream');
+    let isPlaying = false;
+
+    const playSVG = `
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z" />
+      </svg>`;
+    const pauseSVG = `
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+      </svg>`;
+
+    $button.addEventListener('click', () => {
+/*       isPlaying = !isPlaying;
+      console.log("Button clicked, isPlaying:", isPlaying);
+      $icon.innerHTML = isPlaying ? pauseSVG : playSVG; */
+
+         if (!isPlaying) {
+        audio.play();
+        $icon.innerHTML = pauseSVG;
+      } else {
+        audio.pause();
+        $icon.innerHTML = playSVG;
+      }
+      isPlaying = !isPlaying;
+    });
+  });
+
+</script>

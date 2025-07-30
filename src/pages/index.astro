@@ -1,11 +1,63 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Header from '../components/Header.astro';
+import Radio from '../components/Radio.astro';
 import Layout from '../layouts/Layout.astro';
+import Slider from '../components/Slider.astro';
+import Shows from '../components/Shows.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import About from '../components/About.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+    <Header/>
+	<main>
+        <section id="home">
+            <Slider />
+        </section>
+        <About />
+        <Shows />
+        <Contact />
+        <Footer />
+	</main>
+	<aside>
+	    <Radio label="Radio Cristiana Radio"/>
+    </aside>
 </Layout>
+
+<style>
+    main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto; /* Centra el main horizontalmente */
+    }
+
+    #home{
+       /*  max-width: 1024px; */
+       width: 100%;
+       min-height: 100vh;
+    }
+
+    aside {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+</style>
+
