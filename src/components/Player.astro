@@ -10,6 +10,22 @@ import { Icon } from 'astro-icon/components';
     </svg>
   </div>
 </button>
+
+	<div class="flex flex-col items-center ml-6">
+		<label for="volume-control" class="text-white text-base font-medium mb-1">Volumen</label>
+<!-- 		<input
+			id="volume-control"
+			type="range"
+			min="0"
+			max="100"
+			value="50"
+			step="0.01"
+			class="w-32 accent-yellow-400"
+		/> -->
+
+    <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.7" class="w-32 accent-yellow-400">
+	</div>
+
 <audio id="radio-stream" src="https://s2.radio.co/sb8a87a94f/listen" preload="none"></audio>
 
 
@@ -18,15 +34,16 @@ import { Icon } from 'astro-icon/components';
   document.addEventListener('DOMContentLoaded', () => {
     const $button = document.getElementById('toggle-button');
     const $icon = document.getElementById('icon-toggle');
-        const audio = document.getElementById('radio-stream');
+    const audio = document.getElementById('radio-stream');
+    const $volumeControl = document.getElementById('volume-control') as HTMLInputElement;
 
 
-  if (!$button || !$icon || !(audio instanceof HTMLAudioElement)) {
-    console.error("Uno de los elementos no se encontró o no es válido.");
-    return;
-  }
-
-      let isPlaying = false;
+    if (!$button || !$icon ||  !$volumeControl  || !(audio instanceof HTMLAudioElement)) {
+      console.error("Uno de los elementos no se encontró o no es válido.");
+      return;
+    }
+    audio.volume = parseFloat($volumeControl.value); // volumen inicial
+    let isPlaying = false;
       
     const playSVG = `
       <svg viewBox="0 0 24 24" fill="currentColor">
@@ -38,8 +55,7 @@ import { Icon } from 'astro-icon/components';
       </svg>`;
 
     $button.addEventListener('click', () => {
-
-         if (!isPlaying) {
+      if (!isPlaying) {
         audio.play();
         $icon.innerHTML = pauseSVG;
       } else {
@@ -48,6 +64,12 @@ import { Icon } from 'astro-icon/components';
       }
       isPlaying = !isPlaying;
     });
+
+    $volumeControl.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        audio.volume = parseFloat(target.value);
+    });
+
   });
 
 </script>

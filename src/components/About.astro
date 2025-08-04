@@ -2,69 +2,49 @@
 import { Icon } from 'astro-icon/components';
 
 ---
-
-<section id="about" class="w-[1024px] mx-auto py-14">
-
-    <p class="text-center text-lg pb-1">Escúchanos en vivo desde nuestra web, redes sociales y app móvil<!-- - <span  class="text-gray-900 font-bold   px-2 py-0.5"> 102.1</span> --></p>
-    <div class="flex flex-row justify-center items-center text-yellow-300 ">
-      <div class="h-0.5 w-36 flex bg-yellow-300"></div>
-      <Icon name="microphone" class="w-8 h-8 mx-2" />
-      <div class="h-0.5 w-36 flex bg-yellow-300"></div>
-    </div>
-    <h2 class="text-center text-4xl font-bold mb-4 pt-1">ACERCA DE NUESTRA ESTACION DE RADIO</h2>
-    <p class="text-center text-lg">Somos una radio cristiana en español, nacida en el corazón de Maryland y dedicada a transmitir vida, verdad y propósito. Con programación inspiradora, podcasts edificantes, música, transmisiones en redes sociales y en nuestra app. </p>
-    <p  class="text-center text-lg mt-1">Buscamos ser más que una señal: queremos ser una comunida que cree en el poder del Evangelio, en conectar culturas , corazones y en ofrecer contenido que refleje amor, convicción y esperanza.</p>
-
-  <article class="swiper flex justify-center align-middle mx-auto mt-10 pt-8 center">
-    <div class="card-wrapper">
-      <div class="card-list swiper-wrapper">
-        <div class="card-item swiper-slide">
-          <img class="card-image" src="ws6.jpeg" alt="Imagen 1">
-        </div>
-        <div class="card-item  swiper-slide">
-          <img class="card-image" src="ws5.jpeg" alt="Imagen 1">
-        </div>
-        <div class="card-item  swiper-slide">
-          <img class="card-image" src="ws3.jpeg" alt="Imagen 1">
-        </div>
-        <div class="card-item  swiper-slide">
-          <img class="card-image" src="ws4.jpeg" alt="Imagen 1">
-        </div>
-        <div class="card-item  swiper-slide">
-          <img class="card-image" src="ws2.jpeg" alt="Imagen 1">
-        </div>
-               <div class="card-item  swiper-slide">
-          <img class="card-image" src="ws7.jpeg" alt="Imagen 1">
-        </div>
-               <div class="card-item  swiper-slide">
-          <img class="card-image" src="ws1.jpeg" alt="Imagen 1">
-        </div>
-
+<section id="about" class="w-full  bg-gray-900">
+  <div  class="w-[1024px] mx-auto py-14">
+      <p class="text-center text-lg pb-1">Escúchanos en vivo desde nuestra web, redes sociales y app móvil<!-- - <span  class="text-gray-900 font-bold   px-2 py-0.5"> 102.1</span> --></p>
+      <div class="flex flex-row justify-center items-center text-yellow-300 ">
+        <div class="h-0.5 w-36 flex bg-yellow-300"></div>
+        <Icon name="microphone" class="w-8 h-8 mx-2" />
+        <div class="h-0.5 w-36 flex bg-yellow-300"></div>
       </div>
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </article>
-</section>
+      <h2 class="text-center text-4xl font-bold mb-4 pt-1">ACERCA DE NUESTRA ESTACION DE RADIO</h2>
+      <p class="text-center text-lg mb-1 w-[80%] mx-auto">Somos una radio cristiana en español, nacida en el corazón de Maryland y con más de 4 años en línea dedicados a transmitir vida, verdad y propósito. </p>
+      <p  class="text-center text-lg mt-1 w-[80%] mx-auto">Buscamos ser más que una señal: queremos ser una comunida que cree en el poder del Evangelio, en conectar culturas , corazones y en ofrecer contenido que refleje amor, convicción y esperanza.</p>
 
-<section class="w-full  bg-[#1b1b1b]  pt-10 pb-10 ">
-  <div class="flex flex-row  justify-center gap-1 align-middle items-center  mx-auto w-[1024px]">
+    <article class="swiper flex justify-center align-middle mx-auto mt-10 pt-8 center">
+      <div class="card-wrapper">
+        <div class="card-list swiper-wrapper">
+          <div class="card-item swiper-slide">
+            <img class="card-image" src="ws6.jpeg" alt="Imagen 1">
+          </div>
+          <div class="card-item  swiper-slide">
+            <img class="card-image" src="ws5.jpeg" alt="Imagen 1">
+          </div>
+          <div class="card-item  swiper-slide">
+            <img class="card-image" src="ws3.jpeg" alt="Imagen 1">
+          </div>
+          <div class="card-item  swiper-slide">
+            <img class="card-image" src="ws4.jpeg" alt="Imagen 1">
+          </div>
+          <div class="card-item  swiper-slide">
+            <img class="card-image" src="ws2.jpeg" alt="Imagen 1">
+          </div>
+                <div class="card-item  swiper-slide">
+            <img class="card-image" src="ws7.jpeg" alt="Imagen 1">
+          </div>
+                <div class="card-item  swiper-slide">
+            <img class="card-image" src="ws1.jpeg" alt="Imagen 1">
+          </div>
 
-    <div class="text-left w-1/2 ml-10">
-      <h2 class="text-4xl mb-2 font-bold">Descarga nuestra App</h2>
-      <p class="text-ls">Disponible para dispositivos Adroid y iOs</p>
-      <div class="flex flex-row mt-4 gap-4">
-          <button class="flex flex-row mt-6 px-8 py-2 bg-white text-gray-900 rounded-md hover:bg-gray-100 font-bold cursor-pointer"> <span><Icon name="apple" class="w-6 h-6"/></span> App Store</button>
-      <button class="flex flex-row mt-6 px-8 py-2 bg-green-600 text-white rounded-md hover:bg-green-500 font-bold cursor-pointer"> <span><Icon name="android" class="w-6 h-6"/></span>  Google Play</button>
-      </div>  
-
-    </div>
-    
-    <div class="flex flex-row  rounded shadow w-1/2 align-baseline">
-      <img src="./movilweb.png" alt="asd" class="w-60   rounded-xl shadow" />
-    </div>
-
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </article>
   </div>
 </section>
 

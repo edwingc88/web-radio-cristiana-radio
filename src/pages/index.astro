@@ -2,11 +2,12 @@
 import Header from '../components/Header.astro';
 import Radio from '../components/Radio.astro';
 import Layout from '../layouts/Layout.astro';
-import Slider from '../components/Slider.astro';
+import Hero from '../components/Hero.astro';
 import Shows from '../components/Shows.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import About from '../components/About.astro';
+import MovilSection from '../components/MovilSection.astro';
 
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -16,10 +17,9 @@ import About from '../components/About.astro';
 <Layout>
     <Header/>
 	<main>
-        <section id="home">
-            <Slider />
-        </section>
+        <Hero />
         <About />
+        <MovilSection />
         <Shows />
         <Contact />
         <Footer />
@@ -38,19 +38,13 @@ import About from '../components/About.astro';
         margin: 0 auto; /* Centra el main horizontalmente */
     }
 
-    #home{
-       /*  max-width: 1024px; */
-       width: 100%;
-       min-height: 100vh;
-    }
-
     aside {
         position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
         z-index: 100;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.8);
         box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
         display: flex;
         justify-content: center;
