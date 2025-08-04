@@ -1,8 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components';
+
 ---
 
-<section id="about" class="w-[1024px] mx-auto py-12">
+<section id="about" class="w-[1024px] mx-auto py-14">
 
     <p class="text-center text-lg pb-1">Escúchanos en vivo desde nuestra web, redes sociales y app móvil<!-- - <span  class="text-gray-900 font-bold   px-2 py-0.5"> 102.1</span> --></p>
     <div class="flex flex-row justify-center items-center text-yellow-300 ">
@@ -14,12 +15,172 @@ import { Icon } from 'astro-icon/components';
     <p class="text-center text-lg">Somos una radio cristiana en español, nacida en el corazón de Maryland y dedicada a transmitir vida, verdad y propósito. Con programación inspiradora, podcasts edificantes, música, transmisiones en redes sociales y en nuestra app. </p>
     <p  class="text-center text-lg mt-1">Buscamos ser más que una señal: queremos ser una comunida que cree en el poder del Evangelio, en conectar culturas , corazones y en ofrecer contenido que refleje amor, convicción y esperanza.</p>
 
-  <article class="pt-8">
-    <div class="grid grid-cols-2 gap-4">
-      <img src="/ws5.jpeg" alt="Radio photo 1" class="rounded shadow" />
-      <img src="/ws6.jpeg" alt="Radio photo 2" class="rounded shadow" />
-      <img src="/ws1.jpeg" alt="Radio photo 3" class="rounded shadow" />
-      <img src="/ws2.jpeg" alt="Radio photo 4" class="rounded shadow" />
+  <article class="swiper flex justify-center align-middle mx-auto mt-10 pt-8 center">
+    <div class="card-wrapper">
+      <div class="card-list swiper-wrapper">
+        <div class="card-item swiper-slide">
+          <img class="card-image" src="ws6.jpeg" alt="Imagen 1">
+        </div>
+        <div class="card-item  swiper-slide">
+          <img class="card-image" src="ws5.jpeg" alt="Imagen 1">
+        </div>
+        <div class="card-item  swiper-slide">
+          <img class="card-image" src="ws3.jpeg" alt="Imagen 1">
+        </div>
+        <div class="card-item  swiper-slide">
+          <img class="card-image" src="ws4.jpeg" alt="Imagen 1">
+        </div>
+        <div class="card-item  swiper-slide">
+          <img class="card-image" src="ws2.jpeg" alt="Imagen 1">
+        </div>
+               <div class="card-item  swiper-slide">
+          <img class="card-image" src="ws7.jpeg" alt="Imagen 1">
+        </div>
+               <div class="card-item  swiper-slide">
+          <img class="card-image" src="ws1.jpeg" alt="Imagen 1">
+        </div>
+
+      </div>
     </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </article>
 </section>
+
+<section class="w-full  bg-[#1b1b1b]  pt-10 pb-10 ">
+  <div class="flex flex-row  justify-center gap-1 align-middle items-center  mx-auto w-[1024px]">
+
+    <div class="text-left w-1/2 ml-10">
+      <h2 class="text-4xl mb-2 font-bold">Descarga nuestra App</h2>
+      <p class="text-ls">Disponible para dispositivos Adroid y iOs</p>
+      <div class="flex flex-row mt-4 gap-4">
+          <button class="flex flex-row mt-6 px-8 py-2 bg-white text-gray-900 rounded-md hover:bg-yellow-500 font-bold cursor-pointer"> <span><Icon name="apple" class="w-6 h-6"/></span> App Store</button>
+      <button class="flex flex-row mt-6 px-8 py-2 bg-green-600 text-white rounded-md hover:bg-yellow-500 font-bold cursor-pointer"> <span><Icon name="android" class="w-6 h-6"/></span>  Google Play</button>
+      </div>  
+
+    </div>
+    
+    <div class="flex flex-row  rounded shadow w-1/2 align-baseline">
+      <img src="./movilweb.png" alt="asd" class="w-60   rounded-xl shadow" />
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+.slider {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.card-image {
+  object-fit: cover;
+  border-radius: 1em;
+  padding-block: 1em;
+  padding-inline: 0.5em;
+  aspect-ratio: 1/1;   
+  margin: 0 auto;
+}
+
+.card-item {
+  width: 80%
+}
+
+.card-wrapper {
+  overflow: visible !important; /* 👈 Permite que el slide se expanda */
+}
+.swiper-wrapper {
+  overflow: visible !important;
+}
+
+
+.swiper-pagination {
+  font-weight: bold;
+}
+
+.swiper-button-prev{
+  color: #fff;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+.swiper-button-next{
+  color: #fff;
+  font-weight: bold;
+  margin-right: 50px;
+}
+
+.swiper-slide-active {
+ /* 👈 Aumenta tamaño */
+  z-index:1000!important;                 /* 👈 Lo pone encima */
+}
+
+.card-wrapper .swiper-slide-active img {
+  transform: scale(1.6);
+  opacity: 1;
+  z-index: 100!important;
+}
+
+.swiper-slide {
+  transform: scale(0.96);
+  z-index: -10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swiper-slide::after {
+  transform: scale(0.96);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.card-wrapper .swiper-slide-active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+</style>
+
+<script type="module">
+  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+
+const swiper =  new Swiper('.card-wrapper', {
+    slidesPerView: 1,
+    centeredSlides: true,   
+    initialSlide: 0,
+    loop: true,
+    spaceBetween: 0,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 3,
+      }
+    }
+  });
+</script>
