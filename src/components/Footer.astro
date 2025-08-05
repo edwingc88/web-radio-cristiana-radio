@@ -1,19 +1,19 @@
 ---
 import { Icon } from 'astro-icon/components';
-
+import logoTextoSVG  from '../assets/logoTextoSVG.svg'
 ---
 
 <section class="w-full  pt-8 pb-30 bg-black ">
   <div class="grid grid-cols-3 gap-3  mx-auto w-[1024px]">
     <div class="text-center mx-auto ">
-      <img src="./logo-radio-cristiana.png" alt="asd" class="w-40 h-40 mx-auto">
+      <img src={logoTextoSVG.src} alt="asd" class="w-40 h-40 mx-auto">
     </div>
     <div class="text-center">
       <h2 class="text-2xl mb-1 ">MAS INFORMACION</h2>
        <div class="flex flex-col items-center jus ">
-        <p class="pt-3 flex flex-row gap-x-2 items-center justify-center"><Icon name="map" /><span>Annapolis, MD, United States, Maryland </span></p>
-        <p class="pt-3 flex flex-row gap-x-2 items-center justify-center">  <Icon name="phone" />  +1 123 12345678</p>
-        <p class="pt-3 flex flex-row gap-x-2 items-center justify-center cursor-pointer">  <Icon name="mail" />  info@example.com</p>
+        <p class="pt-3 flex flex-row gap-x-2 items-center justify-center"><Icon name="map" /><span> Annapolis Md USA 21403.</span></p>
+        <p class="pt-3 flex flex-row gap-x-2 items-center justify-center">  <Icon name="phone" />+1-667-4239691</p>
+        <p class="pt-3 flex flex-row gap-x-2 items-center justify-center cursor-pointer">  <Icon name="mail" />radiocristianaradio@gmail.com</p>
       </div>
     </div>
     <div class="text-center">
