@@ -3,19 +3,22 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <section id="contact" class="w-full bg-gray-900 mx-auto pt-12 pb-12">
-  <div class="grid grid-cols-2 gap-4 w-[1024px] mx-auto ">
+  <div class="grid grid-col lg:grid-cols-2 gap-4 w-full lg:w-[1024px] mx-auto ">
     <div>
     <p class="pb-1">Tu mensaje es bienvenido</p>
-    <h2 class="text-3xl font-bold mb-5">CONTACTANOS</h2>
-    <p class="pb-1">¿Tienes comentarios, sugerencias o solo quieres mantenerte al día con nuestra programación? </p><p>Escríbenos a través del formulario y deja tu correo electrónico. Así podremos enviarte información exclusiva sobre nuestros próximos programas, lanzamientos especiales y todo lo que estamos preparando en Radio Cristiana Radio.</p>
+    <h2 class="text-3xl font-bold mb-5">CONTÁCTANOS</h2>
+    <p class="pb-2">¿Tienes comentarios, sugerencias o solo quieres mantenerte al día con nuestra programación? </p><p>Escríbenos a través del formulario y deja tu correo electrónico. Así podremos enviarte información exclusiva sobre nuestros próximos programas, lanzamientos especiales y todo lo que estamos preparando en Radio Cristiana Radio.</p>
     <ul class="flex flex-row gap-2 mt-4">
-            <li class="cursor-pointer  hover:scale-110 transition-transform"><a href="https://www.instagram.com/radiocristianaradio"  target="_blank"><Icon name="instagram" class="w-8 h-8" /></a></li>
+      <li class="cursor-pointer  hover:scale-110 transition-transform"><a href="https://www.instagram.com/radiocristianaradio"  target="_blank"><Icon name="instagram" class="w-8 h-8" /></a></li>
       <li class="cursor-pointer  hover:scale-110 transition-transform"><a href="https://www.facebook.com/profile.php?id=61569653967637"  target="_blank"><Icon name="facebook" class="w-8 h-8" /></a>  </li>
-
-      <li class="cursor-pointer  hover:scale-110 transition-transform"><a href="https://wa.me/584121234567?text=Hola%20quiero%20más%20información" target="_blank"><Icon name="ws" class="w-8 h-8 " /></a></li>
+      <li class="cursor-pointer hover:scale-110 transition-transform">
+        <a href="https://wa.me/16674239691?text=Hola%20quiero%20más%20información" target="_blank">
+          <Icon name="ws" class="w-8 h-8" />
+        </a>
+      </li>
       <li class="cursor-pointer  hover:scale-110 transition-transform "><a href="https://www.youtube.com/@martinezhalberto" target="_blank"><Icon name="youtube" class="w-8 h-8" /></a> </li>
     </ul>    
-        <form  class="pt-8 text-white" action="">
+        <form  class="pt-8 text-white" action="POST" data-netlify="true">
           <label for="name" class="block text-sm font-medium ">Nombre</label>
           <input type="text" id="name" name="name" class="mt-1 block w-full border-b-2  shadow-sm sm:text-sm focus:outline-none" required>
           <label for="email" class="block text-sm font-medium mt-4">Email</label>
@@ -26,7 +29,7 @@ import { Icon } from 'astro-icon/components';
           <button type="submit" class="mt-6 px-8 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-500 font-bold cursor-pointer">ENVIAR</button>
         </form>
     </div>
-    <img class="image-degradada" src="/chicha-recortada.png" alt="Radio photo 1" class="w-100 -mt-28" />
+    <img class="image-degradada" src="/chicha-recortada.png" alt="Radio photo 1" class="w-full lg:w-100 -mt-28" />
   </div>
 </section>
 
@@ -42,3 +45,7 @@ import { Icon } from 'astro-icon/components';
 }
 </style>
 
+<script>
+  
+
+</script> 
