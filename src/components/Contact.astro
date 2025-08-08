@@ -8,7 +8,7 @@ import { Icon } from 'astro-icon/components';
     <p class="pb-1">Tu mensaje es bienvenido</p>
     <h2 class="text-3xl font-bold mb-5">CONTÁCTANOS</h2>
     <p class="pb-2">¿Tienes comentarios, sugerencias o solo quieres mantenerte al día con nuestra programación? </p><p>Escríbenos a través del formulario y deja tu correo electrónico. Así podremos enviarte información exclusiva sobre nuestros próximos programas, lanzamientos especiales y todo lo que estamos preparando en Radio Cristiana Radio.</p>
-    <ul class="flex flex-row gap-2 mt-4">
+    <ul class="flex flex-row gap-x-2 -ml-1 mt-4 mb-2">
       <li class="cursor-pointer  hover:scale-110 transition-transform"><a href="https://www.instagram.com/radiocristianaradio"  target="_blank"><Icon name="instagram" class="w-8 h-8" /></a></li>
       <li class="cursor-pointer  hover:scale-110 transition-transform"><a href="https://www.facebook.com/profile.php?id=61569653967637"  target="_blank"><Icon name="facebook" class="w-8 h-8" /></a>  </li>
       <li class="cursor-pointer hover:scale-110 transition-transform">
@@ -26,7 +26,7 @@ import { Icon } from 'astro-icon/components';
         <input type="email" id="email" name="email" required class="mt-1 block w-full border-b-2 shadow-sm sm:text-sm focus:outline-none">
         <label for="message" class="block text-sm font-medium mt-4">Mensaje</label>
         <textarea id="message" name="message" rows="4" class="mt-1 block w-full border-b-2 shadow-sm sm:text-sm resize-none"></textarea>
-     <div data-netlify-recaptcha="true"></div>
+        <!--   <div data-netlify-recaptcha="true"></div> -->
         <button type="submit" class="mt-6 px-8 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-500 font-bold cursor-pointer">ENVIAR</button>
       </form>
     </div>
