@@ -1,33 +1,26 @@
 ---
 import { Icon } from 'astro-icon/components';
+const { label } = Astro.props;
 ---
 
-<button id="toggle-button" class="w-16 h-16 rounded-full bg-white hover:bg-yellow-200 flex items-center justify-center transition hover:cursor-pointer">
-  <div id="icon-toggle" class="w-10 h-10 text-gray-900">
-    <!-- SVG Play por defecto -->
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M8 5v14l11-7z" />
-    </svg>
-  </div>
-</button>
+    <h2 class="flex  justify-center  text-yellow-300 text-lg font-semibold ">{label}<Icon name="live" class="lg:text-2xl  ml-0.5 mt-0.5" /></h2>
+    
+    <button id="toggle-button" class="w-10 h-10 lg:w-16 lg:h-16 rounded-full bg-white hover:bg-yellow-200 flex items-center justify-center transition hover:cursor-pointer">
+      <div id="icon-toggle" class="w-10 h-10 lg:w-16 lg:h-16 lg:p-2  p-1 text-gray-900">
+        <!-- SVG Play por defecto -->
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+    </button>
 
-	<div class="flex flex-col items-center ml-6">
-		<label for="volume-control" class="text-white text-base font-medium mb-1">Volumen</label>
-<!-- 		<input
-			id="volume-control"
-			type="range"
-			min="0"
-			max="100"
-			value="50"
-			step="0.01"
-			class="w-32 accent-yellow-400"
-		/> -->
+    <div class="flex flex-row lg:flex-col  lg:gap-x-0 gap-x-1 items-center lg:ml-6">
+      <label for="volume-control" class="text-white lg:text-base font-medium mb-1 lg:block hidden  ">Volumen</label>
+      <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.7" class="w-32 accent-yellow-400">
+    </div>
 
-    <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.7" class="w-32 accent-yellow-400">
-	</div>
 
-<audio id="radio-stream" src="https://s2.radio.co/sb8a87a94f/listen" preload="none"></audio>
-
+  <audio id="radio-stream" src="https://s2.radio.co/sb8a87a94f/listen" preload="none"></audio>
 
 <script>
 
