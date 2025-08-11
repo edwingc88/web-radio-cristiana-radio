@@ -6,7 +6,7 @@ import logotexto  from '../assets/logotexto.svg'
 <section class="gg w-full bg-gradient-to-tr from-black to-[#101828] pt-8 pb-30 ">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-3  mx-auto w-full lg:w-[1024px]">
     <div class="text-center mx-auto ">
-      <img src={logotexto.src} alt="asd" class="w-40 h-40 mx-auto">
+      <img src={logotexto.src} alt="asd" class=" w-40 h-40 mx-auto">
     </div>
     <div class="text-center">
       <h2 class="text-2xl mb-1 ">MAS INFORMACION</h2>
@@ -29,6 +29,15 @@ import logotexto  from '../assets/logotexto.svg'
 </section>
 
 <style>
-  .gg{
-  }
+.image-degradada {
+   margin-top: -140px;
+   mask-image: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 1) 70%, 
+    rgba(0, 0, 0, 0) 100%);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+/*   -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));  *//* Para Safari */
+ 
+}
+
 </style>
