@@ -3,9 +3,9 @@ import { Icon } from 'astro-icon/components';
 const { label } = Astro.props;
 ---
 
-    <h2 class="flex  justify-center  text-yellow-300 text-lg font-semibold ">{label}<Icon name="live" class="lg:text-2xl  ml-0.5 mt-0.5" /></h2>
+    <h2 class="flex  justify-center text-sm  text-yellow-300 lg:text-lg font-semibold ">{label}<Icon name="live" class="lg:text-2xl  ml-0.5 mt-0.5" /></h2>
     
-    <button id="toggle-button" class="w-10 h-10 lg:w-16 lg:h-16 rounded-full bg-white hover:bg-yellow-200 flex items-center justify-center transition hover:cursor-pointer">
+    <button id="toggle-button" class="w-11 h-11 lg:w-16 lg:h-16 rounded-full bg-white hover:bg-yellow-200 flex items-center justify-center transition hover:cursor-pointer">
       <div id="icon-toggle" class="w-10 h-10 lg:w-16 lg:h-16 lg:p-2  p-1 text-gray-900">
         <!-- SVG Play por defecto -->
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -14,9 +14,9 @@ const { label } = Astro.props;
       </div>
     </button>
 
-    <div class="flex flex-row lg:flex-col  lg:gap-x-0 gap-x-1 items-center lg:ml-6">
+    <div class="flex flex-row lg:flex-col   lg:gap-x-0 gap-x-1 items-center lg:ml-6">
       <label for="volume-control" class="text-white lg:text-base font-medium mb-1 lg:block hidden  ">Volumen</label>
-      <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.7" class="w-32 accent-yellow-400">
+      <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.7" class="lg:w-32 w-26 accent-yellow-400">
     </div>
 
 
