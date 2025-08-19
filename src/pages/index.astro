@@ -1,58 +1,21 @@
 ---
-import Header from '../components/Header.astro';
-import Radio from '../components/Radio.astro';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Shows from '../components/Shows.astro';
 import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
+
 import About from '../components/About.astro';
 import MovilSection from '../components/MovilSection.astro';
-
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-    <Header/>
-	<main>
-        <Hero />
-        <About />
-        <MovilSection />
-        <Shows />
-        <Contact />
-        <Footer />
-	</main>
-	<aside>
-	    <Radio label="Señal en Vivo"/>
-    </aside>
+    <Hero />
+    <About />
+    <MovilSection />
+    <Shows />
+    <Contact />
 </Layout>
-
-<style>
-    main {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto; /* Centra el main horizontalmente */
-        position: relative;
-    }
-
-    aside {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        z-index: 100;
-        background: rgba(0, 0, 0, 0.8);
-        box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-    }
-
-</style>
 

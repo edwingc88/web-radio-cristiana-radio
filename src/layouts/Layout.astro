@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css";
+import Header from '../components/Header.astro';
+import Radio from '../components/Radio.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -16,7 +19,19 @@ import "../styles/global.css";
 		<title>Radio Cristiana Radio</title>
 	</head>
 	<body>
-		<slot />
+		<header class="z-20  h-20 w-full absolute">
+   	 <Header/>
+		</header>
+		<main>
+			<slot />
+		</main>
+
+		<footer class="gg w-full bg-gradient-to-tr from-black to-[#101828] pt-8 pb-30 ">
+    	<Footer />
+		</footer>
+		<aside>
+	    <Radio label="Señal en Vivo"/>
+		</aside>
 	</body>
 	</html>
 
@@ -26,7 +41,47 @@ import "../styles/global.css";
 		 scroll-behavior: smooth;
 		margin: 0;
 		width: 100%;
-		height: 100%;
 		color: #FFF;
 	}
+
+	body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+		header {
+			width: 100%;
+			background-color: transparent;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 20px;
+  }
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+			  flex: 1 0 auto;
+        width: 100%;
+    }
+	
+    aside {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }ñol
+		footer {
+				width: 100%;
+				
+		}
 </style>

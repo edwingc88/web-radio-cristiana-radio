@@ -3,7 +3,6 @@ import { Icon } from 'astro-icon/components';
 import logotexto  from '../assets/logotexto.svg'
 ---
 
-<section class="gg w-full bg-gradient-to-tr from-black to-[#101828] pt-8 pb-30 ">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-3  mx-auto w-full lg:w-[1024px]">
     <div class="text-center mx-auto ">
       <img src={logotexto.src} alt="asd" class=" w-40 h-40 mx-auto">
@@ -14,6 +13,7 @@ import logotexto  from '../assets/logotexto.svg'
         <p class="pt-3 flex flex-row gap-x-2 items-center justify-center"><Icon name="map" /><span> Annapolis Md USA 21403.</span></p>
         <p class="pt-3 flex flex-row gap-x-2 items-center justify-center">  <Icon name="phone" />+1-667-4239691</p>
         <p class="pt-3 flex flex-row gap-x-2 items-center justify-center">  <Icon name="mail" />radiocristianaradio@gmail.com</p>
+        <a  class="pt-3 flex flex-row gap-x-2 items-center justify-center" href="/legal">Aspectos Legales</a>
       </div>
     </div>
     <div class="text-center">
@@ -26,7 +26,7 @@ import logotexto  from '../assets/logotexto.svg'
       </ul>
     </div>
   </div>
-</section>
+
 
 <style>
 .image-degradada {
@@ -37,7 +37,8 @@ import logotexto  from '../assets/logotexto.svg'
     rgba(0, 0, 0, 0) 100%);
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 /*   -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));  *//* Para Safari */
- 
+
 }
+
 
 </style>
