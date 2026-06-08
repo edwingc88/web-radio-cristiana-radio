@@ -1,68 +1,122 @@
 ---
 import { Icon } from 'astro-icon/components';
-const { label } = Astro.props;
+const { label = "Señal en Vivo" } = Astro.props;
 ---
 
-    <h2 class="flex  justify-center text-sm  text-yellow-300 lg:text-lg font-semibold ">{label}<Icon name="live" class="lg:text-2xl  ml-0.5 mt-0.5" /></h2>
-    
-    <button id="toggle-button" class="w-11 h-11 lg:w-16 lg:h-16 rounded-full bg-white hover:bg-yellow-200 flex items-center justify-center transition hover:cursor-pointer">
-      <div id="icon-toggle" class="w-10 h-10 lg:w-16 lg:h-16 lg:p-2  p-1 text-gray-900">
-        <!-- SVG Play por defecto -->
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </div>
-    </button>
-
-    <div class="flex flex-row lg:flex-col   lg:gap-x-0 gap-x-1 items-center lg:ml-6">
-      <label for="volume-control" class="text-white lg:text-base font-medium mb-1 lg:block hidden  ">Volumen</label>
-      <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.7" class="lg:w-32 w-26 cursor-pointer accent-yellow-400">
+<!-- Contenedor Principal (Asegúrate de tener flex y alineación en tu layout de abajo) -->
+<div class="flex items-center justify-between w-full max-w-4xl mx-auto px-4 py-3 bg-zinc-950/50 backdrop-blur-md rounded-xl">
+  
+  <!-- Bloque de Texto + Ecualizador Animado -->
+  <div class="flex items-center gap-x-2">
+    <h2 class="flex justify-center text-sm text-yellow-300 lg:text-lg font-semibold">
+      {label}
+    </h2>
+    <!-- Barras de sonido animadas (Solo visibles al reproducir) -->
+    <div id="audio-animation" class="invisible flex items-end gap-[3px] h-4 w-5 mb-1">
+      <span class="w-[3px] bg-yellow-400 rounded-full animate-[sound-bar_0.8s_ease-in-out_infinite_alternate]"></span>
+      <span class="w-[3px] bg-yellow-400 rounded-full animate-[sound-bar_0.5s_ease-in-out_infinite_alternate_0.2s]"></span>
+      <span class="w-[3px] bg-yellow-400 rounded-full animate-[sound-bar_0.7s_ease-in-out_infinite_alternate_0.4s]"></span>
+    </div>
+  </div>
+  
+  <!-- Botón Play / Pause / Spinner -->
+  <button id="toggle-button" class="relative w-11 h-11 lg:w-16 lg:h-16 rounded-full bg-white hover:bg-yellow-200 flex items-center justify-center transition hover:cursor-pointer group shadow-lg">
+    <!-- SVG Spinner de Carga (Oculto por defecto) -->
+    <div id="loading-spinner" class="hidden absolute inset-0 items-center justify-center">
+      <svg class="animate-spin h-6 w-6 lg:h-8 lg:w-8 text-gray-900" xmlns="http://w3.org" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
     </div>
 
+    <!-- Iconos de Control -->
+    <div id="icon-toggle" class="w-10 h-10 lg:w-16 lg:h-16 lg:p-2 p-1 text-gray-900 flex items-center justify-center">
+      <!-- SVG Play por defecto -->
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </div>
+  </button>
 
-  <audio id="radio-stream" src="https://s2.radio.co/sb8a87a94f/listen" preload="none"></audio>
+  <!-- Control de Volumen -->
+  <div class="flex flex-row lg:flex-col lg:gap-x-0 gap-x-1 items-center lg:ml-6">
+    <label for="volume-control" class="text-white lg:text-base font-medium mb-1 lg:block hidden">Volumen</label>
+    <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.7" class="lg:w-32 w-26 cursor-pointer accent-yellow-400">
+  </div>
+</div>
+
+<audio id="radio-stream" src="https://stream.zeno.fm/utojpczqio2tv" preload="none"></audio>
+
+<!-- Estilos personalizados para las barras animadas -->
+<style is:global>
+  @keyframes sound-bar {
+    0% { height: 20%; }
+    100% { height: 100%; }
+  }
+</style>
 
 <script>
-
   document.addEventListener('DOMContentLoaded', () => {
     const $button = document.getElementById('toggle-button');
     const $icon = document.getElementById('icon-toggle');
+    const $spinner = document.getElementById('loading-spinner');
+    const $animation = document.getElementById('audio-animation');
     const audio = document.getElementById('radio-stream');
     const $volumeControl = document.getElementById('volume-control') as HTMLInputElement;
 
-
-    if (!$button || !$icon ||  !$volumeControl  || !(audio instanceof HTMLAudioElement)) {
+    if (!$button || !$icon || !$spinner || !$animation || !$volumeControl || !(audio instanceof HTMLAudioElement)) {
       console.error("Uno de los elementos no se encontró o no es válido.");
       return;
     }
-    audio.volume = parseFloat($volumeControl.value); // volumen inicial
-    let isPlaying = false;
-      
-    const playSVG = `
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M8 5v14l11-7z" />
-      </svg>`;
-    const pauseSVG = `
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-      </svg>`;
 
+    audio.volume = parseFloat($volumeControl.value);
+
+    const playSVG = `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M8 5v14l11-7z" /></svg>`;
+    const pauseSVG = `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>`;
+
+    // Evento Click: Control de flujo básico
     $button.addEventListener('click', () => {
-      if (!isPlaying) {
-        audio.play();
-        $icon.innerHTML = pauseSVG;
+      if (audio.paused) {
+        audio.play().catch(err => console.log("Error al reproducir: ", err));
       } else {
         audio.pause();
-        $icon.innerHTML = playSVG;
       }
-      isPlaying = !isPlaying;
     });
 
+    // 1. EVENTO: El streaming está conectando / cargando buffer
+    audio.addEventListener('waiting', () => {
+      $spinner.classList.remove('hidden');
+      $spinner.classList.add('flex');
+      $icon.classList.add('opacity-0'); // Esconde el icono temporalmente
+    });
+
+    // 2. EVENTO: El streaming ya suena en vivo
+    audio.addEventListener('playing', () => {
+      $spinner.classList.add('hidden');
+      $spinner.classList.remove('flex');
+      $icon.classList.remove('opacity-0');
+      $icon.innerHTML = pauseSVG;
+      
+      // Muestra la animación de las onditas de sonido
+      $animation.classList.remove('invisible');
+      $animation.classList.add('visible');
+    });
+
+    // 3. EVENTO: Se pausó la radio
+    audio.addEventListener('pause', () => {
+      $spinner.classList.add('hidden');
+      $icon.classList.remove('opacity-0');
+      $icon.innerHTML = playSVG;
+      
+      // Oculta la animación de sonido
+      $animation.classList.remove('visible');
+      $animation.classList.add('invisible');
+    });
+
+    // Control de volumen continuo
     $volumeControl.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement;
         audio.volume = parseFloat(target.value);
     });
-
   });
-
 </script>
