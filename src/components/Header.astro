@@ -5,6 +5,7 @@
 {astro.src } */
 
 import logo  from '../assets/logo.svg'
+import { Icon } from 'astro-icon/components';
 
 ---
 
@@ -13,12 +14,23 @@ import logo  from '../assets/logo.svg'
 				<img src={logo.src} class="w-22 p-1" alt="astro logo">
 				<span class="ml-2 text-xl font-bold">Radio Cristiana Radio</span>
 			</a>
-			<ul class="flex lg:mt-0  text-sm lg:text-lg  mt-3 space-x-4">
-				<li><a href="/" class="hover:underline">INICIO</a></li>
-				<li><a href="/#about" class="hover:underline">ACERCA</a></li>
-				<li><a href="/#shows" class="hover:underline">PROGRAMACIÓN</a></li>
-				<li><a href="/#contact" class="hover:underline">CONTACTO</a></li>
-			</ul>
+			<div class="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-">	
+				<ul class="flex lg:mt-0  text-sm lg:text-lg  mt-3 space-x-4">
+					<li><a href="/" class="hover:underline">INICIO</a></li>
+					<li><a href="/#about" class="hover:underline">ACERCA</a></li>
+					<li><a href="/#shows" class="hover:underline">PROGRAMACIÓN</a></li>
+					<li><a href="/#contact" class="hover:underline">CONTACTO</a></li>
+				</ul>
+				<ul class="flex lg:mt-0  text-sm lg:text-lg  mt-0 space-x-4">
+					<li class="cursor-pointer  hover:scale-110 transition-transform"><a href="https://www.instagram.com/radiocristianaradio"  target="_blank"><Icon name="instagram" class="w-7 h-7" /></a></li>
+					<li class="cursor-pointer  hover:scale-110 transition-transform"><a href="https://www.facebook.com/profile.php?id=61569653967637"  target="_blank"><Icon name="facebook" class="w-7 h-7" /></a>  </li>
+					<li class="cursor-pointer hover:scale-110 transition-transform">
+					<a href="https://wa.me/16674239691?text=Hola%20quiero%20más%20información" target="_blank">
+					<Icon name="ws" class="w-7 h-7" />
+					</a>
+					</li>
+				</ul>
+			</div>
 		</nav>
 
 
